@@ -16,7 +16,7 @@ function App() {
       <div>
         <h1>User Details Modal</h1>
         <button type="button" onClick={() => setIsOpen(true)}>Open Form</button>
-        {isOpen && <ModalComponent formData={formData} setFormData={setFormData} />}
+        {isOpen && <ModalComponent formData={formData} setFormData={setFormData} setIsOpen={setIsOpen} />}
       </div>
     </div>
   );

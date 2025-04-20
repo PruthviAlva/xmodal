@@ -1,6 +1,6 @@
 import './ModalComponent.css';
 
-function ModalComponent({ formData, setFormData }) {
+function ModalComponent({ formData, setFormData, setIsOpen }) {
 
     const validateForm = () => {
         const { username, email, dob, phone } = formData;
@@ -27,6 +27,12 @@ function ModalComponent({ formData, setFormData }) {
         }
     }
 
+    const handleOutsideClick = (e) => {
+        if (e.target.className === "modal") {
+            setIsOpen(false);
+        }
+    }
+
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData((prev) => ({
@@ -36,7 +42,7 @@ function ModalComponent({ formData, setFormData }) {
     }
 
     return (
-        <div className="modal">
+        <div className="modal" onClick={handleOutsideClick}>
             <div className="modal-content">
                 <h1>Fill Details</h1>
                 <form onSubmit={handleSubmit} className='form-data'>
